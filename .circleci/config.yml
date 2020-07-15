@@ -1,0 +1,42 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/node:12
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "05:f0:05:8d:83:60:6f:f7:a9:84:65:97:a3:aa:53:4b"
+      - checkout
+      - run: yarn install
+      - run: yarn test
+  npm_publish:
+    docker:
+      - image: circleci/node:12
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "05:f0:05:8d:83:60:6f:f7:a9:84:65:97:a3:aa:53:4b"
+      - checkout
+      - run:
+          command: |
+            COMMIT_MSG=$(git log --format=oneline -n 1 $CIRCLE_SHA1)
+            if [[ $COMMIT_MSG == *"[skip-ci-version]"* ]]; then
+              echo "[skip-ci-version] detected. Stopping."
+              circleci step halt
+            fi
+      - run: yarn install --frozen-lockfile
+      - run: yarn run build
+      - run: git config --global user.email "$GIT_AUTHOR_EMAIL"
+      - run: git config --global user.name "$GIT_AUTHOR_NAME"
+      - run: yarn run release
+workflows:
+  version: 2
+  do_build:
+    jobs:
+      - npm_publish:
+          context: public_package_publish
+          filters:
+            branches:
+              only:
+                - master
