@@ -141,10 +141,10 @@ function spruceSemanticRelease(options?: {
 		success: ['@semantic-release/github'],
 		fail: ['@semantic-release/github'],
 		generateNotes: {
-			config: 'conventional-changelog-sprucelabs'
+			config: 'conventional-changelog-kengoldfarb'
 		},
 		analyzeCommits: {
-			config: 'conventional-changelog-sprucelabs',
+			config: 'conventional-changelog-kengoldfarb',
 			releaseRules: [
 				// Custom Rules
 				{ type: 'BREAKING', release: 'major' },
