@@ -1,3 +1,5 @@
+import { execSync } from 'child_process'
+
 export type Branch =
 	| string
 	| { name: string; prerelease?: boolean; channel?: string }
@@ -28,6 +30,7 @@ export const defaultOptions = {
 			{ name: 'canary', prerelease: true },
 			{ name: 'prerelease-*', prerelease: true }
 		],
+		// eslint-disable-next-line no-template-curly-in-string
 		releaseMessage: 'chore(release): ${nextRelease.version} [skip-ci-version]'
 	}
 }
@@ -49,18 +52,19 @@ function spruceSemanticRelease(options?: {
 	releaseMessage?: string
 }) {
 	if (!options) {
+		// eslint-disable-next-line no-param-reassign
 		options = {}
 	}
 
 	if (options.config && defaultOptions[options.config]) {
+		// eslint-disable-next-line no-param-reassign
 		options = defaultOptions[options.config]
 	}
 
 	const branches: Branch[] =
 		options.branches || defaultOptions[ReleaseConfiguration.App].branches
 
-	const currentBranch = require('child_process')
-		.execSync('git rev-parse --abbrev-ref HEAD')
+	const currentBranch = execSync('git rev-parse --abbrev-ref HEAD')
 		.toString()
 		.trim()
 
@@ -114,6 +118,7 @@ function spruceSemanticRelease(options?: {
 			{
 				message:
 					options.releaseMessage ||
+					// eslint-disable-next-line no-template-curly-in-string
 					'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
 			}
 		])
