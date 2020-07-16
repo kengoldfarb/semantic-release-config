@@ -4,19 +4,35 @@ export type Branch =
 
 export type Plugin = string | [string, Record<string, any>]
 
+/** The default release configuration */
 export enum ReleaseConfiguration {
-	Package = 'package',
+	/** Apps like skills */
+	App = 'app',
+	/** Packages / libraries that are published publicly */
+	Package = 'package'
 }
 
 export const defaultOptions = {
+	[ReleaseConfiguration.App]: {
+		branches: [
+			'master',
+			{ name: 'alpha', prerelease: true },
+			{ name: 'qa', prerelease: true },
+			{ name: 'dev', prerelease: true }
+		]
+	},
 	[ReleaseConfiguration.Package]: {
 		npmPublish: true,
-		branches: [{ name: 'master', channel: 'latest' }],
-		releaseMessage: 'chore(release): ${nextRelease.version} [skip-ci-version]',
-	},
+		branches: [
+			{ name: 'dev', channel: 'beta' },
+			{ name: 'canary', prerelease: true },
+			{ name: 'prerelease-*', prerelease: true }
+		],
+		releaseMessage: 'chore(release): ${nextRelease.version} [skip-ci-version]'
+	}
 }
 
-function semanticRelease(options?: {
+function spruceSemanticRelease(options?: {
 	/** Use a pre-defined release configuration as your base options. */
 	config?: ReleaseConfiguration
 	/** Override the default branch configuration. */
@@ -41,7 +57,7 @@ function semanticRelease(options?: {
 	}
 
 	const branches: Branch[] =
-		options.branches || defaultOptions[ReleaseConfiguration.Package].branches
+		options.branches || defaultOptions[ReleaseConfiguration.App].branches
 
 	const currentBranch = require('child_process')
 		.execSync('git rev-parse --abbrev-ref HEAD')
@@ -63,7 +79,7 @@ function semanticRelease(options?: {
 
 	const verifyConditions = [
 		'@semantic-release/changelog',
-		'@semantic-release/github',
+		'@semantic-release/github'
 	]
 
 	const publish = ['@semantic-release/github']
@@ -72,25 +88,25 @@ function semanticRelease(options?: {
 
 	const plugins: Plugin[] = [
 		'@semantic-release/commit-analyzer',
-		'@semantic-release/release-notes-generator',
+		'@semantic-release/release-notes-generator'
 	]
 
 	// Only bump the package.json version and write the changelog if this is a release branch
 	if (isReleaseBranch) {
 		prepare.push({
 			path: '@semantic-release/changelog',
-			changelogFile: options.changelogFile || 'CHANGELOG.md',
+			changelogFile: options.changelogFile || 'CHANGELOG.md'
 		})
 
 		// NPM plugin handles bumping the package.json version
 		plugins.push([
 			'@semantic-release/npm',
-			{ npmPublish: options.npmPublish === true },
+			{ npmPublish: options.npmPublish === true }
 		])
 
 		prepare.push([
 			'@semantic-release/npm',
-			{ npmPublish: options.npmPublish === true },
+			{ npmPublish: options.npmPublish === true }
 		])
 
 		prepare.push([
@@ -98,8 +114,8 @@ function semanticRelease(options?: {
 			{
 				message:
 					options.releaseMessage ||
-					'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
-			},
+					'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
+			}
 		])
 
 		plugins.push('@semantic-release/git')
@@ -117,7 +133,7 @@ function semanticRelease(options?: {
 		plugins,
 		publishConfig: {
 			registry: 'https://registry.npmjs.org/',
-			tag: 'beta',
+			tag: 'beta'
 		},
 		verifyConditions,
 		prepare,
@@ -125,10 +141,10 @@ function semanticRelease(options?: {
 		success: ['@semantic-release/github'],
 		fail: ['@semantic-release/github'],
 		generateNotes: {
-			config: 'conventional-changelog-kengoldfarb',
+			config: 'conventional-changelog-sprucelabs'
 		},
 		analyzeCommits: {
-			config: 'conventional-changelog-kengoldfarb',
+			config: 'conventional-changelog-sprucelabs',
 			releaseRules: [
 				// Custom Rules
 				{ type: 'BREAKING', release: 'major' },
@@ -140,10 +156,10 @@ function semanticRelease(options?: {
 				{ type: 'minor', release: 'minor' },
 
 				// Custom default catch-all, treat it as a patch version
-				{ release: 'patch' },
-			],
-		},
+				{ release: 'patch' }
+			]
+		}
 	}
 }
 
-export default semanticRelease
+export default spruceSemanticRelease

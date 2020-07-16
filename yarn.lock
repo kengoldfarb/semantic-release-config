@@ -221,9 +221,9 @@
     "@types/node" ">= 8"
 
 "@octokit/types@^5.0.0", "@octokit/types@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@octokit/types/-/types-5.0.1.tgz#5459e9a5e9df8565dcc62c17a34491904d71971e"
-  integrity sha512-GorvORVwp244fGKEt3cgt/P+M0MGy4xEDbckw+K5ojEezxyMDgCaYPKVct+/eWQfZXOT7uq0xRpmrl/+hliabA==
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@octokit/types/-/types-5.1.0.tgz#4377a3f39edad3e60753fb5c3c310756f1ded57f"
+  integrity sha512-OFxUBgrEllAbdEmWp/wNmKIu5EuumKHG4sgy56vjZ8lXPgMhF05c76hmulfOdFHHYRpPj49ygOZJ8wgVsPecuA==
   dependencies:
     "@types/node" ">= 8"
 
@@ -914,9 +914,9 @@ chokidar-cli@^2.1.0:
     yargs "^13.3.0"
 
 chokidar@^3.2.3:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.4.0.tgz#b30611423ce376357c765b9b8f904b9fba3c0be8"
-  integrity sha512-aXAaho2VJtisB/1fg1+3nlLJqGOuewTzQpd/Tz0yTg2R0e4IGtshYvtjowyEumcBv2z+y4+kc75Mz7j5xJskcQ==
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.4.1.tgz#e905bdecf10eaa0a0b1db0c664481cc4cbc22ba1"
+  integrity sha512-TQTJyr2stihpC4Sya9hs2Xh+O2wf+igjL36Y75xx2WdHuiICcn/XJza46Jwt0eT5hVpQOzo3FpY3cj3RVYLX0g==
   dependencies:
     anymatch "~3.1.1"
     braces "~3.0.2"
@@ -1603,9 +1603,9 @@ escape-string-regexp@^1.0.5:
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
 eslint-config-kengoldfarb@^1:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-kengoldfarb/-/eslint-config-kengoldfarb-1.0.0.tgz#ae5f861acba23d347b70384933b28ee357c8165f"
-  integrity sha512-qDqOEQKGVUv0Gz7tMOk07TBF2kaIyBN8vX5V7qG81+UjtkPd5O1UBNmLxNf2d9NL6Ao/PmfEBI1OMZHno0FTUw==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/eslint-config-kengoldfarb/-/eslint-config-kengoldfarb-1.0.3.tgz#293d2aaca8b2982b14c1a2fef39409398b43599e"
+  integrity sha512-TTo7SAlF9LiOICNogGW0twR2zlelCM8pZylzhNFD0yjKQTkLAykye4RFVNEw55Mx6aUKZvekDehxXCof+UfkYA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.22.0"
     "@typescript-eslint/parser" "^2.22.0"
@@ -1613,7 +1613,7 @@ eslint-config-kengoldfarb@^1:
     eslint-config-prettier "^6.7.0"
     eslint-plugin-import "2.20.0"
     eslint-plugin-jsx-a11y "6.1.2"
-    eslint-plugin-kengoldfarb "^1.0.0"
+    eslint-plugin-kengoldfarb "^1.0.3"
     eslint-plugin-prettier "^3.1.1"
     eslint-plugin-react "^7.16.0"
 
@@ -1672,10 +1672,10 @@ eslint-plugin-jsx-a11y@6.1.2:
     has "^1.0.3"
     jsx-ast-utils "^2.0.1"
 
-eslint-plugin-kengoldfarb@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-kengoldfarb/-/eslint-plugin-kengoldfarb-1.0.0.tgz#5e5ea4d8ad1fc0ab94f36a4da5621148f4fa5d6f"
-  integrity sha512-+l4B6ohEysoHLmY17ZNccSWcFPeSLPMeV9/zFWnlLtGya4PQLL1/1LZ2JuXhchGezTC2o0xRSqSXwbkjv5tPpA==
+eslint-plugin-kengoldfarb@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-kengoldfarb/-/eslint-plugin-kengoldfarb-1.0.3.tgz#3f829ec34c719d5e8f8c82b9f52b1e1483c18ba1"
+  integrity sha512-vaC7pSRaGXPQUAosg7bP4QOWd2hDGQ8wrd/qeysKLnDJMl1sM+G9v4KkhLaaIgdkQXQUtjPJJ9rte4cX1XP+KQ==
   dependencies:
     pascal-case "^2.0.1"
 
