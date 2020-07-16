@@ -26,6 +26,7 @@ export const defaultOptions = {
 	[ReleaseConfiguration.Package]: {
 		npmPublish: true,
 		branches: [
+			'master',
 			{ name: 'dev', channel: 'beta' },
 			{ name: 'canary', prerelease: true },
 			{ name: 'prerelease-*', prerelease: true }
