@@ -1602,10 +1602,10 @@ escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-kengoldfarb@^1:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/eslint-config-kengoldfarb/-/eslint-config-kengoldfarb-1.0.3.tgz#293d2aaca8b2982b14c1a2fef39409398b43599e"
-  integrity sha512-TTo7SAlF9LiOICNogGW0twR2zlelCM8pZylzhNFD0yjKQTkLAykye4RFVNEw55Mx6aUKZvekDehxXCof+UfkYA==
+eslint-config-kengoldfarb@^1.1:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-kengoldfarb/-/eslint-config-kengoldfarb-1.1.2.tgz#354da7a49e6580da5b058ac54ea9934e6a5e15ca"
+  integrity sha512-FxguT8d4AcwDzPHgwzP5IF0KjKqIf9acr2VdhQYt2yho/eQw/cpyOe8fFWFC60eDts8jAarEQfUMxo5g69K6/g==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.22.0"
     "@typescript-eslint/parser" "^2.22.0"
@@ -1613,7 +1613,7 @@ eslint-config-kengoldfarb@^1:
     eslint-config-prettier "^6.7.0"
     eslint-plugin-import "2.20.0"
     eslint-plugin-jsx-a11y "6.1.2"
-    eslint-plugin-kengoldfarb "^1.0.3"
+    eslint-plugin-kengoldfarb "^1.1.2"
     eslint-plugin-prettier "^3.1.1"
     eslint-plugin-react "^7.16.0"
 
@@ -1672,10 +1672,10 @@ eslint-plugin-jsx-a11y@6.1.2:
     has "^1.0.3"
     jsx-ast-utils "^2.0.1"
 
-eslint-plugin-kengoldfarb@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-kengoldfarb/-/eslint-plugin-kengoldfarb-1.0.3.tgz#3f829ec34c719d5e8f8c82b9f52b1e1483c18ba1"
-  integrity sha512-vaC7pSRaGXPQUAosg7bP4QOWd2hDGQ8wrd/qeysKLnDJMl1sM+G9v4KkhLaaIgdkQXQUtjPJJ9rte4cX1XP+KQ==
+eslint-plugin-kengoldfarb@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-kengoldfarb/-/eslint-plugin-kengoldfarb-1.1.2.tgz#0d027e5f06c0a4d4ba4b066052abce22db5623d3"
+  integrity sha512-AdIbZxA3faXENOQvv/FxIDHUyQyvgvynGp594I4f6taRIFosw2/TmT6UORnZcgoyMCpyuPStT/moGbT9eJBVlg==
   dependencies:
     pascal-case "^2.0.1"
 

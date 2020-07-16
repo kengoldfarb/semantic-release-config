@@ -1,6 +1,3 @@
-module.exports = {
-	trailingComma: 'none',
-	useTabs: true,
-	semi: false,
-	singleQuote: true
-  }
+const config = require('eslint-config-kengoldfarb/prettierConfig')
+
+module.exports = config
