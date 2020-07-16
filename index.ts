@@ -14,13 +14,20 @@ export enum ReleaseConfiguration {
 	Package = 'package'
 }
 
+const sharedPrereleaseBranches = [
+	{ name: 'alpha', prerelease: true },
+	{ name: 'stage', prerelease: true },
+	{ name: 'qa', prerelease: true },
+	{ name: 'uat', prerelease: true },
+	{ name: 'canary', prerelease: true }
+]
+
 export const defaultOptions = {
 	[ReleaseConfiguration.App]: {
 		branches: [
 			'master',
-			{ name: 'alpha', prerelease: true },
-			{ name: 'qa', prerelease: true },
-			{ name: 'dev', prerelease: true }
+			{ name: 'dev', prerelease: true },
+			...sharedPrereleaseBranches
 		]
 	},
 	[ReleaseConfiguration.Package]: {
@@ -28,7 +35,7 @@ export const defaultOptions = {
 		branches: [
 			'master',
 			{ name: 'dev', channel: 'beta' },
-			{ name: 'canary', prerelease: true },
+			...sharedPrereleaseBranches,
 			{ name: 'prerelease-*', prerelease: true }
 		],
 		// eslint-disable-next-line no-template-curly-in-string

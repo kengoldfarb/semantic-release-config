@@ -9,7 +9,7 @@
 	"scripts": {
 		"build": "npm run clean && tsc",
 		"clean": "rm -rf build/",
-		"lint": "eslint '**/*.ts' && tsc -p . --noEmit",
+		"lint": "eslint '**/*.ts' '**/*.js' && tsc -p . --noEmit",
 		"lint:fix": "eslint --fix '**/*.ts'",
 		"watch": "chokidar 'index.ts' 'src/**/*.(js|jsx|ts|tsx)' -c 'npm run build'",
 		"release": "semantic-release"

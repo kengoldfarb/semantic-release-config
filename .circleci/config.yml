@@ -43,6 +43,7 @@ workflows:
           filters:
             branches:
               only:
+                - master
                 - alpha
                 - qa
                 - dev
