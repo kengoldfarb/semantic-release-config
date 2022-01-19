@@ -68,7 +68,7 @@ function spruceSemanticRelease(options?: {
 		.toString()
 		.trim()
 
-	const isReleaseBranch = branches.find((b) => {
+	const isReleaseBranch = branches.find(b => {
 		if (
 			b === currentBranch ||
 			(typeof b === 'object' &&
