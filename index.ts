@@ -8,7 +8,7 @@ export type Plugin = string | [string, Record<string, any>]
 
 /** The default release configuration */
 export enum ReleaseConfiguration {
-	/** Apps like skills */
+	/** Apps that are not published publicly */
 	App = 'app',
 	/** Packages / libraries that are published publicly */
 	Package = 'package'
@@ -35,7 +35,7 @@ export const defaultOptions = {
 	}
 }
 
-function spruceSemanticRelease(options?: {
+function semanticRelease(options?: {
 	/** Use a pre-defined release configuration as your base options. */
 	config?: ReleaseConfiguration
 	/** Override the default branch configuration. */
@@ -167,4 +167,4 @@ function spruceSemanticRelease(options?: {
 	}
 }
 
-export default spruceSemanticRelease
+export default semanticRelease
