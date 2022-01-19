@@ -2,7 +2,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:14
     steps:
       - add_ssh_keys:
           fingerprints:
@@ -12,7 +12,7 @@ jobs:
       - run: yarn lint
   do_release:
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:14
     steps:
       - add_ssh_keys:
           fingerprints:
@@ -32,7 +32,7 @@ jobs:
       - run: yarn run release
   tag_latest:
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:14
     steps:
       - run:
           name: Authenticate with registry
