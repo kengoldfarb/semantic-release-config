@@ -35,6 +35,7 @@
 		"chokidar-cli": "^3.0.0",
 		"eslint": "^7.4.0",
 		"eslint-config-kengoldfarb": "^1.3.0",
+		"eslint-plugin-prettier": "^4.0.0",
 		"prettier": "^2.5.1",
 		"ts-node": "^10.4.0",
 		"typescript": "^4.5.4"
