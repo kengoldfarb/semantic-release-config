@@ -1,5 +1,11 @@
 ## A sensible semantic-release configuration
 
-### Credit
+To integrate, create a `release.config.js` at the root level of your project:
 
-Based on [@sprucelabs/semantic-release](https://github.com/sprucelabsai/sprucelabs-semantic-release)
+```js
+const semanticReleaseConfig = require('@kengoldfarb/semantic-release-config')
+
+const config = semanticReleaseConfig.default()
+
+module.exports = config
+```

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 const semanticReleaseConfig = require('./build/index')
 
 const config = semanticReleaseConfig.default({
