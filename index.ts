@@ -22,7 +22,13 @@ const sharedPrereleaseBranches = [
 	{ name: 'canary', prerelease: true }
 ]
 
-export const defaultOptions = {
+export const defaultOptions: {
+	[releaseConfig: string]: {
+		branches: Branch[]
+		npmPublish?: boolean
+		releaseMessage?: string
+	}
+} = {
 	[ReleaseConfiguration.App]: {
 		branches: [
 			'master',
@@ -66,8 +72,17 @@ function semanticRelease(options?: IOptions) {
 		options = {}
 	}
 
+	const { config, branches: optionBranches, changelogFile } = options
+
+	const defaultOpt = config
+		? defaultOptions[config]
+		: defaultOptions[ReleaseConfiguration.App]
+
+	const shouldNpmPublish = options.npmPublish ?? defaultOpt.npmPublish
+	const releaseMessage = options.releaseMessage ?? defaultOpt.releaseMessage
+
 	const branches: Branch[] =
-		options.branches || defaultOptions[ReleaseConfiguration.App].branches
+		optionBranches || defaultOptions[ReleaseConfiguration.App].branches
 
 	const currentBranch = execSync('git rev-parse --abbrev-ref HEAD')
 		.toString()
@@ -104,25 +119,25 @@ function semanticRelease(options?: IOptions) {
 	if (isReleaseBranch) {
 		prepare.push({
 			path: '@semantic-release/changelog',
-			changelogFile: options.changelogFile || 'CHANGELOG.md'
+			changelogFile: changelogFile ?? 'CHANGELOG.md'
 		})
 
 		// NPM plugin handles bumping the package.json version
 		plugins.push([
 			'@semantic-release/npm',
-			{ npmPublish: options.npmPublish === true }
+			{ npmPublish: shouldNpmPublish === true }
 		])
 
 		prepare.push([
 			'@semantic-release/npm',
-			{ npmPublish: options.npmPublish === true }
+			{ npmPublish: shouldNpmPublish === true }
 		])
 
 		prepare.push([
 			'@semantic-release/git',
 			{
 				message:
-					options.releaseMessage ||
+					releaseMessage ||
 					// eslint-disable-next-line no-template-curly-in-string
 					'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
 			}
@@ -133,7 +148,7 @@ function semanticRelease(options?: IOptions) {
 		plugins.push('@semantic-release/github')
 	}
 
-	if (options.npmPublish === true) {
+	if (shouldNpmPublish === true) {
 		publish.unshift('@semantic-release/npm')
 		verifyConditions.unshift('@semantic-release/npm')
 	}
