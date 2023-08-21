@@ -64,6 +64,8 @@ export interface IOptions {
 	 * Default: 'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
 	 */
 	releaseMessage?: string
+	/* If enabled, will enable comments on PRs. If enabled it can cause issues w/ github rate limiting  */
+	shouldEnablePRComments?: boolean
 }
 
 function semanticRelease(options?: IOptions) {
@@ -72,7 +74,12 @@ function semanticRelease(options?: IOptions) {
 		options = {}
 	}
 
-	const { config, branches: optionBranches, changelogFile } = options
+	const {
+		config,
+		branches: optionBranches,
+		changelogFile,
+		shouldEnablePRComments
+	} = options
 
 	const defaultOpt = config
 		? defaultOptions[config]
@@ -145,7 +152,13 @@ function semanticRelease(options?: IOptions) {
 
 		plugins.push('@semantic-release/git')
 
-		plugins.push('@semantic-release/github')
+		plugins.push([
+			'@semantic-release/github',
+			{
+				successComment: shouldEnablePRComments ?? false,
+				failTitle: shouldEnablePRComments ?? false
+			}
+		])
 	}
 
 	if (shouldNpmPublish === true) {
