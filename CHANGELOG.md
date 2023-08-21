@@ -1,3 +1,12 @@
+## [1.1.2](https://github.com/kengoldfarb/semantic-release-config/compare/v1.1.1...v1.1.2) (2023-06-08)
+
+## [1.1.1](https://github.com/kengoldfarb/semantic-release-config/compare/v1.1.0...v1.1.1) (2023-06-08)
+
+
+### Bug Fixes
+
+* override branch config ([3278e81](https://github.com/kengoldfarb/semantic-release-config/commit/3278e81))
+
 # [1.1.0](https://github.com/kengoldfarb/semantic-release-config/compare/v1.0.2...v1.1.0) (2022-01-19)
 
 
