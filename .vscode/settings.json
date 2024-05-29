@@ -46,6 +46,6 @@
 	"editor.formatOnSaveTimeout": 5000,
 	"editor.codeActionsOnSaveTimeout": 5000,
 	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": true
+		"source.fixAll.eslint": "explicit"
 	}
 }
