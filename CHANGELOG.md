@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/kengoldfarb/semantic-release-config/compare/v1.1.3...v1.2.0) (2024-05-29)
+
+
+### Features
+
+* add "prerelease/" prefix by default ([9e7ff53](https://github.com/kengoldfarb/semantic-release-config/commit/9e7ff53))
+
 ## [1.1.3](https://github.com/kengoldfarb/semantic-release-config/compare/v1.1.2...v1.1.3) (2023-08-21)
 
 
