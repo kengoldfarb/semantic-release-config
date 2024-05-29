@@ -90,7 +90,9 @@ function semanticRelease(options?: IOptions) {
 	const releaseMessage = options.releaseMessage ?? defaultOpt.releaseMessage
 
 	const branches: Branch[] =
-		optionBranches || defaultOptions[ReleaseConfiguration.App].branches
+		optionBranches || shouldNpmPublish
+			? defaultOptions[ReleaseConfiguration.Package].branches
+			: defaultOptions[ReleaseConfiguration.App].branches
 
 	const currentBranch = execSync('git rev-parse --abbrev-ref HEAD')
 		.toString()
