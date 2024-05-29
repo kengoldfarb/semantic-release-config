@@ -1,3 +1,5 @@
+## [1.2.1](https://github.com/kengoldfarb/semantic-release-config/compare/v1.2.0...v1.2.1) (2024-05-29)
+
 # [1.2.0](https://github.com/kengoldfarb/semantic-release-config/compare/v1.1.3...v1.2.0) (2024-05-29)
 
 
