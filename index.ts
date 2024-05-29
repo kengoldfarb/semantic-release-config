@@ -42,7 +42,6 @@ export const defaultOptions: {
 			'master',
 			{ name: 'dev', channel: 'beta' },
 			...sharedPrereleaseBranches,
-			{ name: 'prerelease/*', prerelease: true },
 			{ name: 'prerelease-*', prerelease: true }
 		],
 		// eslint-disable-next-line no-template-curly-in-string
