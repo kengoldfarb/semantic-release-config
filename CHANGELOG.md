@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/kengoldfarb/semantic-release-config/compare/v1.1.2...v1.1.3) (2023-08-21)
+
+
+### Bug Fixes
+
+* turn off comments by default to prevent rate limiting issues ([da70fea](https://github.com/kengoldfarb/semantic-release-config/commit/da70fea))
+
 ## [1.1.2](https://github.com/kengoldfarb/semantic-release-config/compare/v1.1.1...v1.1.2) (2023-06-08)
 
 ## [1.1.1](https://github.com/kengoldfarb/semantic-release-config/compare/v1.1.0...v1.1.1) (2023-06-08)
