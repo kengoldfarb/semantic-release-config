@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/kengoldfarb/semantic-release-config/compare/v1.2.2...v1.2.3) (2024-07-02)
+
+
+### Bug Fixes
+
+* custom branches not respected ([a07b4cc](https://github.com/kengoldfarb/semantic-release-config/commit/a07b4cc))
+
 ## [1.2.2](https://github.com/kengoldfarb/semantic-release-config/compare/v1.2.1...v1.2.2) (2024-05-29)
 
 ## [1.2.1](https://github.com/kengoldfarb/semantic-release-config/compare/v1.2.0...v1.2.1) (2024-05-29)
